@@ -6,10 +6,7 @@ import kr.spartaclub.cloudsparta.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -18,12 +15,14 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/api/members")
-    public ResponseEntity<MemberResponse> addMember(MemberSaveRequest request) {
+    public ResponseEntity<MemberResponse> addMember(@RequestBody MemberSaveRequest request) {
+        log.info("멤버 생성 요청");
         return ResponseEntity.ok(memberService.addMember(request));
     }
 
     @GetMapping("/api/members/{id}")
     public ResponseEntity<MemberResponse> getMember(@PathVariable Long id) {
+        log.info("멤버 조회 요청, id={}", id);
         return ResponseEntity.ok(memberService.getMember(id));
     }
 }
