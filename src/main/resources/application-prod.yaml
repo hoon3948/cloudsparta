@@ -1,0 +1,25 @@
+spring:
+  config:
+    import: aws-parameterstore:/cloud-health-app/prod/
+
+management:
+  endpoint:
+    health:
+      show-details: never
+
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    message: ${APP_MESSAGE}
+
+logging:
+  level:
+    root: INFO
