@@ -36,7 +36,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
     runtimeOnly 'com.h2database:h2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store:4.0.0-RC1'
+    implementation platform('io.awspring.cloud:spring-cloud-aws-dependencies:4.0.0-RC1') // BOM (Bill of Materials)
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store'
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3'
 }
 
 tasks.named('test') {

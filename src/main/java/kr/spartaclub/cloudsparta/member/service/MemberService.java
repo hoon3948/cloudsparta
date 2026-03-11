@@ -22,12 +22,12 @@ public class MemberService {
                 request.getAge(),
                 request.getMbti()
         );
-        log.info("멤버 생성 성공");
+//        log.info("멤버 생성 성공");
         Member savedMember = memberRepository.save(member);
-        log.info("savedMember id = {}", savedMember.getId());
-        log.info("name = {}", savedMember.getName());
-        log.info("age = {}", savedMember.getAge());
-        log.info("mbti = {}", savedMember.getMbti());
+//        log.info("savedMember id = {}", savedMember.getId());
+//        log.info("name = {}", savedMember.getName());
+//        log.info("age = {}", savedMember.getAge());
+//        log.info("mbti = {}", savedMember.getMbti());
         return new MemberResponse(savedMember);
     }
 

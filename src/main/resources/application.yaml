@@ -2,7 +2,24 @@ spring:
   application:
     name: cloudsparta-health-app
   profiles:
-    active: local
+    active: prod
+
+  cloud:
+    aws:
+      region:
+        static: ap-northeast-2
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 
 server:
   port: 8080
