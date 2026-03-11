@@ -108,3 +108,8 @@ ___
 
 ### 2. EC2 터미널 이미지
 ![img_8.png](img_8.png)
+___
+
+## LV 5 - 고가용성 아키텍처와 보안 도메인 연결 (ALB + ASG + HTTPS)
+### 1. HTTPS 적용된 도메인 URL
+### 2. Target Group(대상 그룹) 이미지
