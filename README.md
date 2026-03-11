@@ -7,9 +7,10 @@
 
 # CH 4 클라우드_아키텍처 설계 & 배포
 ___
-## LV 0
+## LV 0 - 요금 폭탄 방지 AWS Budget 설정
 설정 완료된 AWS Budgets 화면
 ![img.png](img.png)
+![img_6.png](img_6.png)
 
 <details>
 <summary><font color="#f08080 red">실습 후 요금 관리</font></summary>
@@ -29,7 +30,7 @@ ___
 </details>
 
 ___
-## LV 1
+## LV 1 - 네트워크 구축 및 핵심 기능 배포
 ### 1. 설정 완료된 EC2의 퍼블릭 IP: `43.202.55.128`
 ### 2. [상태 검증 링크](http://43.202.55.128:8080/actuator/health)<br>
 ![img_3.png](img_3.png)
@@ -86,17 +87,22 @@ ___
 </details>
 
 ___
-## LV 2
+## LV 2 - DB 분리 및 보안 연결하기
 ### 1. Actuator Info 엔드포인트 URL
 [확인용 URL](http://43.202.55.128:8080/actuator/info)
 ![img_2.png](img_2.png)
 ### 2. RDS 보안 그룹 스크린샷
 ![img_5.png](img_5.png)
 ___
-## LV 3
+
+## LV 3 - 프로필 사진 기능 추가와 권한 관리
 ### 1. 발급받은 Presigned URL 1개와 해당 URL의 만료 시간
 2026년 3월 18일 11시 52분에 Presigned URL 만료예정 <br>
 [Presigned URL](https://cloud-health-taehoon-files.s3.ap-northeast-2.amazonaws.com/uploads/ee8e057f-2cd0-470f-af47-f3a0b4a7ecef_%EB%8F%84%EB%9D%BC.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260311T025152Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIA2OG7PDLV7BSASE4F%2F20260311%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Expires=604800&X-Amz-Signature=4ac510fc44dd881e7033917edcc78218e5baa3c9c621f21c30ff68e525c38cf4)
 
-
 ___
+
+## LV 4 - Docker & CI/CD 파이프라인 구축
+### 1. Github Actions 성공 이미지
+
+### 2. EC2 터미널 이미지

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
     private final MemberService memberService;
 
+    //멤버생성
     @PostMapping("/api/members")
     public ResponseEntity<MemberResponse> addMember(@RequestBody MemberSaveRequest request) {
         log.info("멤버 생성 요청");
