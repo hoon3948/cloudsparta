@@ -4,6 +4,7 @@ import io.awspring.cloud.s3.S3Template;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class S3Service {
     @Value("${spring.cloud.aws.s3.bucket}")
     private String bucket;
 
+    @Transactional
     public String upload(MultipartFile file) {
         try {
             String key = "uploads/" + UUID.randomUUID() + "_" + file.getOriginalFilename();
@@ -33,6 +35,7 @@ public class S3Service {
         }
     }
 
+    @Transactional(readOnly = true)
     public URL getDownloadUrl(String key) {
         return s3Template.createSignedGetURL(bucket, key, PRESIGNED_URL_EXPIRATION);
     }
