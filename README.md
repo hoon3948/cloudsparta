@@ -104,6 +104,7 @@ ___
 
 ## LV 4 - Docker & CI/CD 파이프라인 구축
 ### 1. Github Actions 성공 이미지
+![img_7.png](img_7.png)
 
 ### 2. EC2 터미널 이미지
- d
+![img_8.png](img_8.png)
