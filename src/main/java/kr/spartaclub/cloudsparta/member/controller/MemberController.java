@@ -25,16 +25,4 @@ public class MemberController {
         log.info("멤버 조회 요청, id={}", id);
         return ResponseEntity.ok(memberService.getMember(id));
     }
-
-//    @PostMapping("/api/members/{id}/profile-image")
-//    public ResponseEntity<MemberResponse> addMemberProfileImage(
-//            @PathVariable Long id, @RequestBody MemberImageRequest request
-//    ) {
-//
-//    }
-//
-//    @GetMapping("/api/members/{id}/profile-image")
-//    public ResponseEntity<MemberResponse> getMemberProfileImage(@PathVariable Long id) {
-//
-//    }
 }

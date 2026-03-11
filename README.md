@@ -1,11 +1,43 @@
+![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![mySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
+![aws](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![DOCKER](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
+# CH 4 클라우드_아키텍처 설계 & 배포
 ___
-### LV 0
+## LV 0
 설정 완료된 AWS Budgets 화면
 ![img.png](img.png)
-___
-### LV 1
 
-상태 검증 `http://localhost:8080/actuator/health`
+<details>
+<summary><font color="#f08080 red">실습 후 요금 관리</font></summary>
+
+🌟실습 끝났을 때 비용 안 나가게 하는 법 (중요)
+
+실습 끝나면 이 2개만 삭제하세요
+
+1️⃣ Amazon EC2 인스턴스 Terminate<br>
+2️⃣ Amazon RDS DB 인스턴스 Delete
+
+⚠️ AWS 실습에서 가장 많이 터지는 요금 사고
+
+1️⃣ RDS 안 지우고 방치 (가장 흔함)<br>
+2️⃣ NAT Gateway 생성 (시간당 요금)<br>
+3️⃣ Elastic IP 미사용 상태
+</details>
+
+___
+## LV 1
+### 1. 설정 완료된 EC2의 퍼블릭 IP: `43.202.55.128`
+### 2. [상태 검증 링크](http://43.202.55.128:8080/actuator/health)<br>
+![img_3.png](img_3.png)
+### 3. [로컬 상태 검증 링크](http://localhost:8080/actuator/health)
+
+<details>
+<summary>로컬에서 상태 검증 JSON</summary>
+
 ```json
 {
     "components": {
@@ -51,4 +83,20 @@ ___
     "status": "UP"
 }
 ```
+</details>
+
+___
+## LV 2
+### 1. Actuator Info 엔드포인트 URL
+[확인용 URL](http://43.202.55.128:8080/actuator/info)
+![img_2.png](img_2.png)
+### 2. RDS 보안 그룹 스크린샷
+![img_5.png](img_5.png)
+___
+## LV 3
+### 1. 발급받은 Presigned URL 1개와 해당 URL의 만료 시간
+2026년 3월 18일 11시 52분에 Presigned URL 만료예정 <br>
+[Presigned URL](https://cloud-health-taehoon-files.s3.ap-northeast-2.amazonaws.com/uploads/ee8e057f-2cd0-470f-af47-f3a0b4a7ecef_%EB%8F%84%EB%9D%BC.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260311T025152Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIA2OG7PDLV7BSASE4F%2F20260311%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Expires=604800&X-Amz-Signature=4ac510fc44dd881e7033917edcc78218e5baa3c9c621f21c30ff68e525c38cf4)
+
+
 ___
