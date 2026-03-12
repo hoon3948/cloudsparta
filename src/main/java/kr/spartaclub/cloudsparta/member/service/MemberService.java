@@ -1,5 +1,7 @@
 package kr.spartaclub.cloudsparta.member.service;
 
+import kr.spartaclub.cloudsparta.exeption.ErrorCode;
+import kr.spartaclub.cloudsparta.exeption.MemberException;
 import kr.spartaclub.cloudsparta.member.dto.MemberResponse;
 import kr.spartaclub.cloudsparta.member.dto.MemberSaveRequest;
 import kr.spartaclub.cloudsparta.member.entity.Member;
@@ -15,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
+    // 멤버 생성
     @Transactional
     public MemberResponse addMember(MemberSaveRequest request) {
         Member member = new Member(
@@ -31,12 +34,13 @@ public class MemberService {
         return new MemberResponse(savedMember);
     }
 
+    //멤버 조회
     @Transactional(readOnly = true)
     public MemberResponse getMember(Long id) {
         Member member = memberRepository.findById(id).orElseThrow(
                 () -> {
                     log.warn("찾을 수 없는 멤버 아이디:" + id);
-                    return new IllegalArgumentException("Member with id: " + id + " does not exist");
+                    return new MemberException(ErrorCode.MEMBER_NOT_FOUND);
                 }
         );
 

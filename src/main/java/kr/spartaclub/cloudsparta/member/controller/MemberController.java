@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
     private final MemberService memberService;
 
-    //멤버생성
+    // 멤버생성
     @PostMapping("/api/members")
     public ResponseEntity<MemberResponse> addMember(@RequestBody MemberSaveRequest request) {
         log.info("멤버 생성 요청");
         return ResponseEntity.ok(memberService.addMember(request));
     }
 
+    //멤버 조회
     @GetMapping("/api/members/{id}")
     public ResponseEntity<MemberResponse> getMember(@PathVariable Long id) {
         log.info("멤버 조회 요청, id={}", id);

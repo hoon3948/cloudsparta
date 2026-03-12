@@ -1,6 +1,8 @@
 package kr.spartaclub.cloudsparta.file.service;
 
 import io.awspring.cloud.s3.S3Template;
+import kr.spartaclub.cloudsparta.exeption.ErrorCode;
+import kr.spartaclub.cloudsparta.exeption.MemberException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class S3Service {
 
+    // presigned url 기간 설정
     private static final Duration PRESIGNED_URL_EXPIRATION = Duration.ofDays(7);
 
     private final S3Template s3Template;
@@ -23,6 +26,7 @@ public class S3Service {
     @Value("${spring.cloud.aws.s3.bucket}")
     private String bucket;
 
+    // 사진 업로드
     @Transactional
     public String upload(MultipartFile file) {
         try {
@@ -30,11 +34,12 @@ public class S3Service {
             s3Template.upload(bucket, key, file.getInputStream());
             return key;
         } catch (IOException e) {
-            // 적절한 커스텀 예외로 바꾸고, GlobalExceptionHandler로 핸들링 필요
+//            throw new MemberException(ErrorCode.FILE_UPLOAD_FAILED);
             throw new RuntimeException("파일 업로드 실패", e);
         }
     }
 
+    // 사진 다운로드
     @Transactional(readOnly = true)
     public URL getDownloadUrl(String key) {
         return s3Template.createSignedGetURL(bucket, key, PRESIGNED_URL_EXPIRATION);

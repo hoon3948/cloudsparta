@@ -19,12 +19,14 @@ public class FileController {
 
     private final S3Service s3Service;
 
+    // 사진 업로드
     @PostMapping("/api/members/{id}/upload")
     public ResponseEntity<FileUploadResponse> upload(@RequestParam("file") MultipartFile file) {
         String key = s3Service.upload(file);
         return ResponseEntity.ok(new FileUploadResponse(key));
     }
 
+    // 사진 다운로드
     @GetMapping("/api/members/{id}/download-url")
     public ResponseEntity<FileDownloadUrlResponse> getDownloadUrl(@RequestParam String key) {
         URL url = s3Service.getDownloadUrl(key);
