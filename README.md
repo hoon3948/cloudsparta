@@ -89,7 +89,7 @@ ___
 ___
 ## LV 2 - DB 분리 및 보안 연결하기
 ### 1. Actuator Info 엔드포인트 URL
-[확인용 URL](http://43.202.55.128:8080/actuator/info)
+[확인용 URL](http://43.202.55.128:8080/actuator/info)<br>
 ![img_2.png](img_2.png)
 ### 2. RDS 보안 그룹 스크린샷
 ![img_5.png](img_5.png)
@@ -105,6 +105,7 @@ ___
 ## LV 4 - Docker & CI/CD 파이프라인 구축
 ### 1. Github Actions 성공 이미지
 ![img_7.png](img_7.png)
+![img_9.png](img_9.png)
 
 ### 2. EC2 터미널 이미지
 ![img_8.png](img_8.png)
@@ -112,7 +113,14 @@ ___
 
 ## LV 5 - 고가용성 아키텍처와 보안 도메인 연결 (ALB + ASG + HTTPS)
 ### 1. HTTPS 적용된 도메인 URL
+### [도메인 헬스체크](https://0bedia.click/actuator/health)
+![img_12.png](img_12.png)
 ### 2. Target Group(대상 그룹) 이미지
+![img_10.png](img_10.png)
+![img_11.png](img_11.png)
+___
 
-
-test
+## LV 6 - 글로벌 성능 최적화 (CloudFront CDN)
+### 1. CloudFront 이미지 URL
+### [cdn](https://d3gxpxfn1vy910.cloudfront.net/ee8e057f-2cd0-470f-af47-f3a0b4a7ecef_%EB%8F%84%EB%9D%BC.png)
+![img_14.png](img_14.png)
