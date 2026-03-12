@@ -74,8 +74,7 @@ jobs:                       # 작업 정의
           username: ${{secrets.USERNAME}}
           key: ${{secrets.PEM_KEY}}
           script: |
-            sudo docker stop member-app || true
-            sudo docker rm member-app || true
+            sudo docker stop my-app || true
             sudo docker rm my-app || true
             sudo docker pull ${{secrets.DOCKERHUB_USERNAME}}/my-app:arm64
             sudo docker run -d --name my-app \
